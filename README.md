@@ -10,4 +10,4 @@ Small code for sorting and handeling images in the data sets
 Code for running the neural network model with a cam or from a file. 
 
 ## Built With
-* [Flask](http://www.flask.pocoo.org/) - The web framework used
+* [Flask](http://flask.pocoo.org/) - The web framework used
