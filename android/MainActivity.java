@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTextViewResult;
     private Button clickButton, buttonPost, buttonCamera;
     private ImageView imgView;
-    private String result;
+    private String result = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,13 +62,14 @@ public class MainActivity extends AppCompatActivity {
         HttpCall httpCall = new HttpCall();
         httpCall.setMethodtype(HttpCall.GET);
         httpCall.setUrl("http://18.221.217.161:80");
-        HashMap<String,String> params = new HashMap<>();
-        params.put("name","James Bond");
-        params.put("test","Knut Svensson");
-        httpCall.setParams(params);
         clickButton.setOnClickListener( new OnClickListener() {
             @Override
             public void onClick(View v) {
+                HashMap<String,String> params = new HashMap<>();
+                params.put("file", "None");
+                params.put("msg", "get_result");
+                httpCall.setParams(params);
+
                 new HttpRequest(){
                     public void onResponse(String response) {
                         super.onResponse(response);
@@ -81,15 +82,15 @@ public class MainActivity extends AppCompatActivity {
 
         // Button for POST request
         HttpCall httpCallPost = new HttpCall();
-        httpCallPost.setMethodtype(HttpCall.POST);
+        httpCallPost.setMethodtype(HttpCall.GET);
         httpCallPost.setUrl("http://18.221.217.161:80");
-        HashMap<String,String> paramsPost = new HashMap<>();
-        paramsPost.put("name","Julius Cesar");
-        paramsPost.put("file", "abc");
-        httpCallPost.setParams(paramsPost);
         buttonPost.setOnClickListener( new OnClickListener() {
             @Override
             public void onClick(View v) {
+                HashMap<String,String> paramsPost = new HashMap<>();
+                paramsPost.put("file", result);
+                httpCallPost.setParams(paramsPost);
+
                 new HttpRequest(){
                     public void onResponse(String response) {
                         super.onResponse(response);
@@ -120,9 +121,11 @@ public class MainActivity extends AppCompatActivity {
         Bitmap bitmap = (Bitmap) data.getExtras().get("data");
         imgView.setImageBitmap(bitmap);
         result = BitmapToString(bitmap);
+        mTextViewResult.setText(result);
         Log.i("IAMGE", result);
     }
 
+    // Function for converting Bitmap to base64 String
     protected String BitmapToString(Bitmap bitmap){
         // convert bitmap to byte array
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
