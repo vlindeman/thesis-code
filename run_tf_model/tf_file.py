@@ -1,10 +1,9 @@
 import os
 import glob
-import subprocess
 from datetime import datetime
 
+# Handles output from the TF model
 def handle_output(out):
-    # same as function handle_outputs, but with a single output
     result = out.split('\n')[3]
     sign = result.split()
     score = float(sign[1][7:-1])
@@ -18,21 +17,25 @@ if __name__ == '__main__':
     correct = 0
 
     #sign to test
-    sign_number = 'test_enkelriktat'
-    sign_name = 'cinfart'
+    sign_number = '14'
+    sign_name = 'stop'
 
     # loop over all files in folder
     for filename in glob.glob('testbilder/' + sign_number + '/*.jpg'):
-        os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  # Just disables the warning, doesn't enable AVX/FMA
+        # disables warning
+        os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
         # script to run tf model
-        out = os.popen('python -m scripts.label_image --graph=tf_files/retrained_graph.pb --image=' + filename).read()
+        out = os.popen('python -m scripts.label_image --graph=tf_files/'
+                       'retrained_graph.pb --image=' + filename).read()
+
+        print(out)
         sign, score = handle_output(out)
 
         # if identified correct
         if (sign == sign_name):
             correct += 1
 
-        print(counter)
         counter += 1
 
         print()
