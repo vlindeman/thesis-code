@@ -1,8 +1,6 @@
 import cv2
 import  numpy as np
 import os
-import subprocess
-import time
 from datetime import datetime
 
 def take_cam_image():
@@ -108,19 +106,24 @@ def handle_output(out):
 def run_tf_model(use_filter):
 	# run different tensorflow scripts depending on if the filter is used or not
 	if(use_filter):
-		output_filter = os.popen('python -m scripts.label_image --graph=tf_files/retrained_graph.pb --image=res.png').read()
+		output_filter = os.popen('python -m '
+								 'scripts.label_image '
+								 '--graph=tf_files/retrained_graph.pb '
+								 '--image=res.png').read()
 
 		return output_filter
 
 	elif(not use_filter):
-		output_no_filter = os.popen('python -m scripts.label_image --graph=tf_files/retrained_graph.pb --image=image.png').read()
+		output_no_filter = os.popen('python -m scripts.label_image '
+									'--graph=tf_files/retrained_graph.pb '
+									'--image=image.png').read()
 		return output_no_filter
 
 
 
 if __name__ == '__main__':
 	#start timer
-	#start_time = datetime.now()
+	start_time = datetime.now()
 	use_orange_filter = True
 
 	# take picture with cam
@@ -148,7 +151,7 @@ if __name__ == '__main__':
 	print(score)
 
 	# end timer
-	#time_elapsed = datetime.now() - start_time
-	#print('Time elapsed (hh:mm:ss.ms) {}'.format(time_elapsed))
+	time_elapsed = datetime.now() - start_time
+	print('Time elapsed (hh:mm:ss.ms) {}'.format(time_elapsed))
 
 
