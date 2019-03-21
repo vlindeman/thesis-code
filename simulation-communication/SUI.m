@@ -14,4 +14,7 @@ c = [12.6 17.1 20]
 gamma = a(n) - b(n)*hb + c(n)/hb
     
 
-Lb = A + 10*gamma*log(d/d0)+s
+d = 110 : 10 : 10*10^3;
+
+Lb = A + 10*gamma*log(d/d0)+s;
+plot(d+110, Lb)
