@@ -12,6 +12,8 @@ PL = PL_SUIbasic(200, 100, 2*10^9, 50, 10, 1)
 % [PL] = PL_SUI(d, d0,freq,hb,hr,s,n)
 PL2 = PL_SUI(200, 100,2*10^9,40,10,10,1)
 
+% PL = PL-SUI-MOD(alpha, d, d0,freq,hb,hr,s,n)
+PL = PL_SUI_MOD(1, 200, 100,2*10^9,40,10,10,1)
 
 %% STANFORD UNIVERSITY INTERIM model, LOS
 % Suburban enviroment, single narrow beam 
