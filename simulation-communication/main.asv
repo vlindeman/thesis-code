@@ -26,9 +26,7 @@ PL2 = PL_SUI(d, d0, f, hb, hr, s, n)
 PL3 = PL_SUI_MOD(1, d, d0, f, hb, hr, s, n)
 
 pt = 10
-
-q = PL/10; 
-pr = pt/(10^q)
+pr = pt/(10^(PL/10))
 
 %% STANFORD UNIVERSITY INTERIM model, LOS
 % Suburban enviroment, single narrow beam 
