@@ -1,12 +1,11 @@
-import os
 import base64
 
-image = open('img.jpg', 'rb') #open binary file in read mode
-image_read = image.read()
-image_64_encode = base64.encodestring(image_read)
+# Open file containing base64 string
+filepath = "Output.txt"
+fi0 = open(filepath, "r")
+encoded_img = fi0.read()
 
-print(image_64_encode)
-
-image_64_decode = base64.decodestring(image_64_encode)
-image_result = open('decode.jpg', 'wb') # create a writable image and write the decoding result
+# Convert base64 to png
+image_64_decode = base64.b64decode(encoded_img)
+image_result = open('decode.png', 'wb') # create a writable image and write the decoding result
 image_result.write(image_64_decode)
