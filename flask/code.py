@@ -1,10 +1,11 @@
 import os
+import base64
 from flask import Flask, flash, request, redirect, url_for
 from werkzeug.utils import secure_filename
 
 
-UPLOAD_FOLDER = '/upload_folder/'
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+UPLOAD_FOLDER = '/home/ubuntu/flask-serv/'
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -16,31 +17,44 @@ def allowed_file(filename):
 @app.route("/", methods=['GET', 'POST'])
 def main(): 
     if request.method == 'GET':
+        data = request.args.get('file')
+        text_file = open(UPLOAD_FOLDER + "Output.txt", "w")
+        text_file.write(data)
+        text_file.close()
 
-        print(request.args.get('name'))
+        # Open file containing base64 string
+        filepath = UPLOAD_FOLDER + "Output.txt"
+        fi0 = open(filepath, "r")
+        encoded_img = fi0.read()
+
+        # Convert base64 to png
+        image_64_decode = base64.b64decode(encoded_img)
+        image_result = open('decode.png', 'wb')  # create a writable image and write the decoding result
+        image_result.write(image_64_decode)
+
         if 'file' not in request.files:
-            return "Welcome to my Flask page"
+            return "GET request - no file"
+
+        return "GET request OK"
 
 
     elif request.method == 'POST':
-        if 'file' not in request.files:
-            #flash('No file part')
-            #return redirect(request.url)
-            return 'POST request received, No file!'
+        print(request.args)
+        print(request.form)
+        return 'POST request'
 
-        file = request.files['file']
+        data = request.args.get('file')
+        print(data)
         # if user does not select file, browser also
         # submit a empty part without filename
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('uploaded_file',
-                                    filename=filename))
+        if data == 'None':
+            return 'No selected file'
 
-        return 'POST request received!'
+        text_file = open(UPLOAD_FOLDER + "Output.txt", "w")
+        text_file.write(data)
+        text_file.close()
+
+        return 'POST request'
 
 
     else:
