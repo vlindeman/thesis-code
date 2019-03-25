@@ -16,6 +16,7 @@ def allowed_file(filename):
 
 @app.route("/", methods=['GET', 'POST'])
 def main(): 
+def main():
     if request.method == 'GET':
         data = request.args.get('file')
         text_file = open(UPLOAD_FOLDER + "Output.txt", "w")
