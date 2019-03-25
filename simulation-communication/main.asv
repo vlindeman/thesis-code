@@ -12,7 +12,7 @@ f = 28*10^9;
 lambda = physconst('LightSpeed')/f;
 
 % Height of TX and RX (m) 
-hb = 17;
+%hb = 7; 
 hr = 1.5;
 
 % Found PLE for omni 
@@ -44,23 +44,24 @@ PL_gain = PL - TXgain - RXgain
 %% Modified SUI - 28 GHz NLOS omni path loss 
 clear 
  
-d = 60;
+d = 60
 
 f = 28*10^9;
 lambda = physconst('LightSpeed')/f;
 
 % Height of TX and RX (m) 
-hb = 17;
+%hb = 17;
 hr = 1.5;
 
 % Found PLE for omni 
 gamma = 3.4; % "n" in report 
 sigma = 9.7;
 %s = normrnd(0,sigma)
+%s = lognrnd(0,sigma)
 s = sigma;
 d0 = 1; 
-TXgain = 24.5;
-RXgain = 10.9;
+TXgain = 0;
+RXgain = 0;
 
 % Correction factor 
 alpha = 0.71;

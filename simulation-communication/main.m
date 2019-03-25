@@ -36,15 +36,16 @@ PL_sui_d = A + 10*gamma*log10(d/d0)+s+Xfc+Xrx;
 % PLsui(d0)
 PL_sui_d0 = A + 10*gamma*log10(d0/d0)+s+Xfc+Xrx;  
 
-
 PL = alpha*(PL_sui_d - PL_sui_d0) + A + s  
 PL_gain = PL - TXgain - RXgain
 
 
+%% Modified SUI - 28 GHz LOS directional path loss 
+
 %% Modified SUI - 28 GHz NLOS omni path loss 
 clear 
  
-d = 150
+d = 60
 
 f = 28*10^9;
 lambda = physconst('LightSpeed')/f;
@@ -60,8 +61,8 @@ sigma = 9.7;
 %s = lognrnd(0,sigma)
 s = sigma;
 d0 = 1; 
-TXgain = 0;
-RXgain = 0;
+TXgain = 24.5;
+RXgain = 24.5;
 
 % Correction factor 
 alpha = 0.71;
@@ -75,6 +76,7 @@ PL_sui_d = A + 10*gamma*log10(d/d0)+s+Xfc+Xrx;
 % PLsui(d0)
 PL_sui_d0 = A + 10*gamma*log10(d0/d0)+s+Xfc+Xrx;  
 
-
 PL = alpha*(PL_sui_d - PL_sui_d0) + A + s  
 PL_gain = PL - TXgain - RXgain
+
+%% Modified SUI - 28 GHz LOS omni path loss 
