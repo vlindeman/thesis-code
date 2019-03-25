@@ -2,6 +2,7 @@ package com.example.mycnnapp;
 
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
+import android.media.MediaScannerConnection;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.provider.MediaStore;
@@ -57,17 +58,18 @@ public class MainActivity extends AppCompatActivity {
         buttonPost = (Button) findViewById(R.id.button_post);
         buttonCamera = (Button) findViewById(R.id.button_camera);
         imgView = (ImageView) findViewById(R.id.imageView2);
+        String adress = "http://18.217.248.255:80";
 
         // Button for GET request
         HttpCall httpCall = new HttpCall();
         httpCall.setMethodtype(HttpCall.GET);
-        httpCall.setUrl("http://18.221.217.161:80");
+        httpCall.setUrl(adress);
         clickButton.setOnClickListener( new OnClickListener() {
             @Override
             public void onClick(View v) {
                 HashMap<String,String> params = new HashMap<>();
-                params.put("file", "None");
                 params.put("msg", "get_result");
+                params.put("file", "None");
                 httpCall.setParams(params);
 
                 new HttpRequest(){
@@ -83,11 +85,12 @@ public class MainActivity extends AppCompatActivity {
         // Button for POST request
         HttpCall httpCallPost = new HttpCall();
         httpCallPost.setMethodtype(HttpCall.GET);
-        httpCallPost.setUrl("http://18.221.217.161:80");
+        httpCallPost.setUrl(adress);
         buttonPost.setOnClickListener( new OnClickListener() {
             @Override
             public void onClick(View v) {
                 HashMap<String,String> paramsPost = new HashMap<>();
+                paramsPost.put("msg", "ul_file");
                 paramsPost.put("file", result);
                 httpCallPost.setParams(paramsPost);
 
@@ -108,8 +111,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(intent, 0);
             }
-
-
         });
 
     }
