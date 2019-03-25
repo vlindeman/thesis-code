@@ -15,7 +15,6 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route("/", methods=['GET', 'POST'])
-def main(): 
 def main():
     if request.method == 'GET':
         data = request.args.get('file')
