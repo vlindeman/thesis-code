@@ -12,6 +12,7 @@ Code for running the neural network model with a cam or from a file.
 ## Built With
 ### Model 
 * [TensorFlow](https://www.tensorflow.org/) - The deep learning framework 
+* [NumPy](http://www.numpy.org/) - Package for scientific computing
 
 ### Backend 
 * [Flask](http://flask.pocoo.org/) - The web framework used
