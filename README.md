@@ -14,5 +14,8 @@ Code for running the neural network model with a cam or from a file.
 * [TensorFlow](https://www.tensorflow.org/) - The deep learning framework 
 * [NumPy](http://www.numpy.org/) - Package for scientific computing
 
+### Edge 
+* [TensorFlow Lite](https://www.tensorflow.org/lite) - Deploy machine learning models on mobile
+
 ### Backend 
 * [Flask](http://flask.pocoo.org/) - The web framework used
