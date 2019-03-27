@@ -10,8 +10,8 @@ Small code for sorting and handling images in the data sets.
 Code for running the neural network model with a cam or from a file. 
 
 ## Built With
-## Model 
+### Model 
 * [TensorFlow](https://www.tensorflow.org/) - The deep learning framework 
 
-## Backend 
+### Backend 
 * [Flask](http://flask.pocoo.org/) - The web framework used
