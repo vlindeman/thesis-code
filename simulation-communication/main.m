@@ -45,10 +45,10 @@ clear
 
 d = 50;
 
-f = 3*10^9;
+f = 28*10^9;
 lambda = physconst('LightSpeed')/f;
-TXgain = 1;
-RXgain = 1;
+TXgain = 0;
+RXgain = 0;
 
 PL = 20*log10((4*pi*d)/lambda)
 PL_gain = PL - TXgain - RXgain
@@ -89,8 +89,6 @@ PL_sui_d0 = A + 10*gamma*log10(d0/d0)+s+Xfc+Xrx;
 PL = alpha*(PL_sui_d - PL_sui_d0) + A + s
 PL_gain = PL - TXgain - RXgain
 
-PL = alpha*(PL_sui_d - PL_sui_d0) + A + s
-PL_gain = PL - TXgain - RXgain
 
 
 %% Modified SUI - 28 GHz LOS omni path loss
