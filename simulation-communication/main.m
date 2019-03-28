@@ -3,7 +3,7 @@
 % https://ieeexplore-ieee-org.e.bibl.liu.se/stamp/stamp.jsp?tp=&arnumber=6894456
 
 %% Modified SUI - 28 GHz NLOS directional path loss
-% PLE: right NLOS in Table 1
+% Based on SUI model 
 clear
 
 d = 60
@@ -40,16 +40,20 @@ PL = alpha*(PL_sui_d - PL_sui_d0) + A + s
 PL_gain = PL - TXgain - RXgain
 
 
+
 %% Modified SUI - 28 GHz LOS directional path loss
+% Based on Friis FS path loss model 
 clear
 
-d = 100;
+d = 60
+
 d0 = 1; 
 f = 28*10^9;
 lambda = physconst('LightSpeed')/f;
 TXgain = 24.5;
 RXgain = 24.5;
 s = 0.1; 
+gamma = 4.5; % "n" i the report
 alpha = 0.9; 
 
 PLfs_d = 20*log10((4*pi*d)/lambda);
@@ -59,7 +63,10 @@ A = 20*log10((4*pi*d0)/lambda);
 PL = alpha*(PLfs_d-PLfs_d0)+A+s 
 PL_gain = PL - TXgain - RXgain 
 
+
+
 %% Modified SUI - 28 GHz NLOS omni path loss
+% Based on SUI model 
 clear
 
 d = 60
@@ -98,6 +105,24 @@ PL_gain = PL - TXgain - RXgain
 
 
 %% Modified SUI - 28 GHz LOS omni path loss
+% Based on Friis FS path loss model 
+clear
 
+d = 60
 
+d0 = 1; 
+f = 28*10^9;
+lambda = physconst('LightSpeed')/f;
+TXgain = 24.5;
+RXgain = 24.5;
+s = 9.7; 
+gamma = 2.1; % "n" in report
+alpha = 0.9; 
+
+PLfs_d = 20*log10((4*pi*d)/lambda);
+PLfs_d0 = 20*log10((4*pi*d0)/lambda);
+A = 20*log10((4*pi*d0)/lambda);
+
+PL = alpha*(PLfs_d-PLfs_d0)+A+s 
+PL_gain = PL - TXgain - RXgain 
 
