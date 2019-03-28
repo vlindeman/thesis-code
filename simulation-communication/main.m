@@ -43,15 +43,21 @@ PL_gain = PL - TXgain - RXgain
 %% Modified SUI - 28 GHz LOS directional path loss
 clear
 
-d = 50;
-
+d = 100;
+d0 = 1; 
 f = 28*10^9;
 lambda = physconst('LightSpeed')/f;
-TXgain = 0;
-RXgain = 0;
+TXgain = 24.5;
+RXgain = 24.5;
+s = 0.1; 
+alpha = 0.9; 
 
-PL = 20*log10((4*pi*d)/lambda)
-PL_gain = PL - TXgain - RXgain
+PLfs_d = 20*log10((4*pi*d)/lambda);
+PLfs_d0 = 20*log10((4*pi*d0)/lambda);
+A = 20*log10((4*pi*d0)/lambda);
+
+PL = alpha*(PLfs_d-PLfs_d0)+A+s 
+PL_gain = PL - TXgain - RXgain 
 
 %% Modified SUI - 28 GHz NLOS omni path loss
 clear
