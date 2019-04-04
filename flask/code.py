@@ -15,7 +15,7 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route("/", methods=['GET', 'POST'])
-def main():
+def main(): 
     if request.method == 'GET':
         data = request.args.get('file')
         text_file = open(UPLOAD_FOLDER + "Output.txt", "w")
@@ -39,7 +39,23 @@ def main():
 
 
     elif request.method == 'POST':
+        print(request.args)
+        print(request.form)
         return 'POST request'
+
+        data = request.args.get('file')
+        print(data)
+        # if user does not select file, browser also
+        # submit a empty part without filename
+        if data == 'None':
+            return 'No selected file'
+
+        text_file = open(UPLOAD_FOLDER + "Output.txt", "w")
+        text_file.write(data)
+        text_file.close()
+
+        return 'POST request'
+
 
     else:
         return "Error 405 Method Not Allowed"
