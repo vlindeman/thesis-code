@@ -3,11 +3,9 @@ This is the code used in my master's thesis work about a cloud based neural netw
 ### android folder
 The Android app used to communicate with the Flask API.
 ### flask folder 
-The code running on an AWS instance.
-### handle_images folder
-Small code for sorting and handling images in the data sets.
-### run_tf_model folder 
-Code for running the neural network model with a cam or from a file. 
+The code running on an AWS (EC2) instance.
+### development_testing folder
+Code used for testing etc during the project. 
 
 ## Built With
 ### Model 
