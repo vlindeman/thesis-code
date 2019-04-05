@@ -13,10 +13,8 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # handles the output format from tensorflow
 def handle_output(out):
-    result_no_filter = out.split('\n')[3]
-    sign1 = result_no_filter.split()
-    score1 = float(sign1[1][7:-1])
-    return sign1[0], score1
+    result = out.split('\n')[3]
+    return result
 
 
 def allowed_file(filename):
@@ -46,8 +44,9 @@ def main():
         out = os.popen('python3 -m scripts.label_image --graph=tf_files/retrained_graph.pb --image=decode.png').read()
 
         # return highest probable result
-        sign, score = handle_output(out)
-        return 'Sign: ' + sign + ', probability: ' + str(score)
+        #sign, score = handle_output(out)
+        result = handle_output(out)
+        return result
 
     elif request.method == 'POST':
         return '200 POST request OK'
