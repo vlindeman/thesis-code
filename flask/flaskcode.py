@@ -10,9 +10,19 @@ ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+
+# handles the output format from tensorflow
+def handle_output(out):
+    result_no_filter = out.split('\n')[3]
+    sign1 = result_no_filter.split()
+    score1 = float(sign1[1][7:-1])
+    return sign1[0], score1
+
+
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 
 @app.route("/", methods=['GET', 'POST'])
 def main():
@@ -32,8 +42,12 @@ def main():
         image_64_decode = base64.b64decode(encoded_img)
         image_result = open('decode.png', 'wb')  # create a writable image and write the decoding result
         image_result.write(image_64_decode)
-        return "200 GET request OK"
 
+        out = os.popen('python3 -m scripts.label_image --graph=tf_files/retrained_graph.pb --image=decode.png').read()
+
+        # return highest probable result
+        sign, score = handle_output(out)
+        return 'Sign: ' + sign + ', probability: ' + str(score)
 
     elif request.method == 'POST':
         return '200 POST request OK'
@@ -41,8 +55,6 @@ def main():
     else:
         return "Error 405 Method Not Allowed"
 
+
 if __name__ == "__main__":
     app.run(debug=False, host="0.0.0.0", port=80)
-
-
-
