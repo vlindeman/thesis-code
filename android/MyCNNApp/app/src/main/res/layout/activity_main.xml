@@ -14,7 +14,7 @@
         android:layout_marginRight="16dp"
         android:text="Send test"
         android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@+id/button-post"
+        app:layout_constraintEnd_toStartOf="@+id/button-sendimage"
         tools:layout_editor_absoluteY="667dp" />
 
     <TextView
@@ -27,12 +27,12 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="32dp"
         android:text=" "
-        app:layout_constraintBottom_toTopOf="@+id/button-post"
+        app:layout_constraintBottom_toTopOf="@+id/button-sendimage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button-post"
+        android:id="@+id/button-sendimage"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
