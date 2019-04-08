@@ -1,9 +1,9 @@
 # thesis-code
 This is the code used in my master's thesis work about a cloud based neural network model for image classification. 
 ### android folder
-The Android app used to communicate with the Flask API running on an AWS (EC2) instance.
+The Android Studio project for the app used to communicate with the Flask API.
 ### flask folder 
-The code for the Flask API.
+The code for the Flask API running on an AWS (EC2) instance.
 ### development_testing folder
 Code used for testing etc during the project. 
 
