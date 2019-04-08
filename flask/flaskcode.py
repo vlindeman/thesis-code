@@ -1,7 +1,6 @@
 import os
 import base64
-from flask import Flask, flash, request, redirect, url_for
-from werkzeug.utils import secure_filename
+from flask import Flask, request
 
 
 UPLOAD_FOLDER = '/home/ubuntu/flask-serv/'
@@ -43,8 +42,7 @@ def main():
 
         out = os.popen('python3 -m scripts.label_image --graph=tf_files/retrained_graph.pb --image=decode.png').read()
 
-        # return highest probable result
-        #sign, score = handle_output(out)
+        # return highest probable result and probability
         result = handle_output(out)
         return result
 
