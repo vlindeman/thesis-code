@@ -66,6 +66,9 @@ PL_gain = PL - TXgain - RXgain
 
 
 plot(d,PL)
+xlabel('Distance [m]') 
+ylabel('Path Loss [dB] ')  
+hold on
 
 %% Modified SUI - 28 GHz NLOS omni path loss
 % Based on SUI model 
@@ -106,6 +109,11 @@ PL_gain = PL - TXgain - RXgain
 
 
 plot(d,PL)
+
+plot(d,PL)
+xlabel('Distance [m]') 
+ylabel('Path Loss [dB] ')  
+hold on
 
 %% Modified SUI - 28 GHz LOS omni path loss
 % Based on Friis FS path loss model 
