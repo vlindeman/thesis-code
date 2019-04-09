@@ -1,5 +1,5 @@
 # thesis-code
-This is the code used in my master's thesis work about a cloud based neural network model for image classification. 
+This is the code used in my master's thesis work about cloud based neural network model for image classification (of traffic signs). 
 ### android folder
 The Android Studio project for the app used to communicate with the Flask API.
 ### flask folder 
