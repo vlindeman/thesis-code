@@ -8,7 +8,18 @@ d= 10:1:330;
 
 PL = 20*log10((4*pi*d)/lambda);
 
+
+% calc Power 
+dist = 330
+Pt  = 0.0001
+
+Pr = Pt -PL(dist - 9)
+
+
+%% Plot
+
 plot(d, PL)
 hold on
 xlabel('Distance [m]') 
 ylabel('Path Loss [dB] ')  
+

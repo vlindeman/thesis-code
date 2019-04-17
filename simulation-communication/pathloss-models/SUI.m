@@ -19,6 +19,17 @@ gamma = a(n) - b(n)*hb + c(n)/hb
 d = 10: 1 : 330;
 
 PL = A + 10*gamma*log(d/d0)+s;
+
+% calc Power 
+dist = 330
+PtWatt = 1
+
+PtdB   = pow2db(PtWatt)
+
+Pr = PtdB  -PL(dist - 9)
+
+
+%% Plot
 plot(d, PL)
 hold on
 
