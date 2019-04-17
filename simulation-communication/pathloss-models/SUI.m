@@ -2,7 +2,7 @@
 % The most common frequency bands: 450 MHz, 800 MHz, 900 MHz and 2 600 MHz
 clear
 d0 = 1           
-freq = 2600 * 10^6                            % frequency, in hz 
+freq = 450 * 10^6                            % frequency, in hz 
 lambda = physconst('LightSpeed')/freq       % wavelength, in m
 hb = 17                                     % base station height, in m.
 s = 10.8                                      % shadowing effect, dB 
@@ -22,7 +22,7 @@ PL = A + 10*gamma*log(d/d0)+s;
 
 % calc Power 
 dist = 330
-PtWatt = 1
+PtWatt = 0.25
 
 PtdB   = pow2db(PtWatt)
 
