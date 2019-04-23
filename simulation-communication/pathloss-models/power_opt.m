@@ -1,6 +1,6 @@
 
 clear
-% constants 
+% constants from running PL model 
 PL = 91.12; 
 PrMin = -105; 
 
