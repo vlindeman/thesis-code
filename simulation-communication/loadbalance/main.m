@@ -1,4 +1,4 @@
-clear all; 
+clear; 
 clc;
 INF = 2147483647;
 
@@ -6,7 +6,6 @@ INF = 2147483647;
 h = [5, 5, 5]; % demand vector
 z = [1, 1, 1, 1, 1, 1, 1, 1, 1]; % link cost vector. 
 c = [10, 10, 10, 5, 15, 10, 5, 15, 10]; % link capacity vector
-
 D = length(h); % number of unique demands
 E = length(c); % number of links
 
@@ -15,6 +14,7 @@ variables = {'X_11','X_12','X_13', ...
              'X_21','X_22','X_23', ...
              'X_31','X_32','X_33', 'Y'};
 N = length(variables); 
+
 % create variables for indexing 
 for v = 1:N 
    eval([variables{v},' = ', num2str(v),';']); 
@@ -49,6 +49,6 @@ ub = [INF INF INF INF INF INF INF INF INF 1];
 
 % run the optimization function. 
 obj= [0 0 0 0 0 0 0 0 0 1];
-[x fval] = intlinprog(obj,intcon,A,b,Aeq,beq,lb,ub);
+[x, fval] = intlinprog(obj, intcon, A, b, Aeq, beq, lb, ub);
 
 
