@@ -11,6 +11,7 @@ Code used for testing etc during the project.
 ### Model 
 * [TensorFlow](https://www.tensorflow.org/) - The deep learning framework 
 * [NumPy](http://www.numpy.org/) - Package for scientific computing
+* [Download Link to Trained Models](https://bit.ly/2FFhaPI) - Models trained on Swedish or German Traffic Signs 
 
 ### Edge 
 * [TensorFlow Lite](https://www.tensorflow.org/lite) - Deploy machine learning models on mobile and IoT devices 
