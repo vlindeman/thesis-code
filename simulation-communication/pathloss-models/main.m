@@ -140,3 +140,11 @@ PL_gain = PL - TXgain - RXgain
 
 plot(d,PL)
 
+
+%% Calculate power and Capacity 
+
+d = 200
+Pt  = 40
+
+Pr = Pt -PL(d - 10)
+
