@@ -40,6 +40,7 @@ PL = alpha*(PL_sui_d - PL_sui_d0) + A + s
 PL_gain = PL - TXgain - RXgain
 
 plot(d,PL)
+hold on
 
 
 %% Modified SUI - 28 GHz LOS directional path loss
