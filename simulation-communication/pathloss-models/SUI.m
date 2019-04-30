@@ -3,9 +3,11 @@
 clear
 d0 = 1           
 freq = 450 * 10^6                            % frequency, in hz 
+B = 5 * 10^6   
 lambda = physconst('LightSpeed')/freq       % wavelength, in m
 hb = 17                                     % base station height, in m.
 s = 10.8                                      % shadowing effect, dB 
+N0 = 10^-9;
 
 A = 20*log(4*pi*d0/lambda);
 
@@ -20,16 +22,27 @@ d = 10: 1 : 330;
 
 PL = A + 10*gamma*log(d/d0)+s;
 
-% calc Power 
-dist = 330
-PtWatt = 0.25
+% calc Power  
+PtWatt = 0.25 
 
-PtdB   = pow2db(PtWatt)
+PtdB   = pow2db(PtWatt);
 
-Pr = PtdB  -PL(dist - 9)
+Pr_dB = PtdB  -PL;
+
+Pr = db2pow(Pr_dB);
+
+SNR = Pr/(N0*B);
+
+C = B*log2(1+SNR);
+plot(C)
 
 
-%% Plot
+%% Plot PL
 plot(d, PL)
 hold on
+
+
+%% Plot Capacity 
+
+
 
