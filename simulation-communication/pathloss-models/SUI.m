@@ -17,23 +17,30 @@ b = [0.0075 0.0065 0.005]
 c = [12.6 17.1 20]
 gamma = a(n) - b(n)*hb + c(n)/hb
     
+% distance
+d = 10: 1 : 100;
 
-d = 10: 1 : 330;
+% gain
+Gr = 24.5;
+Gt = 24.5;
 
+% calculate path loss
 PL = A + 10*gamma*log(d/d0)+s;
 
-% calc Power  
-PtWatt = 0.25 
-
+% set and convert Pt
+PtWatt = 1000
 PtdB   = pow2db(PtWatt);
 
+% calculate and convert Pr
 Pr_dB = PtdB  -PL;
-
 Pr = db2pow(Pr_dB);
 
+% calculate SNR 
 SNR = Pr/(N0*B);
 
+% calculate Shannon capacity 
 C = B*log2(1+SNR);
+
 plot(C)
 
 
