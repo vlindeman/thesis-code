@@ -18,9 +18,8 @@ PL = 20*log10((4*pi*d)/lambda) - Gt - Gr;
 max(PL)
 
 % calc Power   
-PtWatt = 0.0095
+PtWatt = 1
 PtdB   = pow2db(PtWatt); 
-
 
 Pr_dB = PtdB  - PL;
 Pr = db2pow(Pr_dB);
@@ -29,7 +28,8 @@ SNR = Pr/(N0*B);
 
 C = B*log2(1+SNR);
 
-plot(C)
+plot(d,C)
+axis([0 inf 0 inf])
 
 %% Plot
 

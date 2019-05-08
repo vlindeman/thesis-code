@@ -42,6 +42,7 @@ SNR = Pr/(N0*B);
 C = B*log2(1+SNR);
 
 plot(C)
+axis([0 inf 0 inf])
 
 
 %% Plot PL
