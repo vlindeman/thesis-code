@@ -15,24 +15,9 @@ Gt = 24.5;
 
 % calculate path loss
 PL = 20*log10((4*pi*d)/lambda) - Gt - Gr; 
-max(PL)
 
-% calc Power   
-PtWatt = 1
-PtdB   = pow2db(PtWatt); 
-
-Pr_dB = PtdB  - PL;
-Pr = db2pow(Pr_dB);
-
-SNR = Pr/(N0*B);
-
-C = B*log2(1+SNR);
-
-plot(d,C)
-axis([0 inf 0 inf])
 
 %% Plot
-
 plot(d, PL)
 hold on
 xlabel('Distance [m]') 
