@@ -17,6 +17,8 @@ C = B*log2(1+SNR);
 %% Plot 
 
 plot(d,C)
+hold on 
 axis([0 inf 0 inf])
-
+xlabel('Distance [m]') 
+ylabel('Capacity [bps] ')  
  
