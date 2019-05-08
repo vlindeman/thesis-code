@@ -13,6 +13,7 @@ E = length(c); % number of links
 variables = {'X_11','X_12','X_13', ...
              'X_21','X_22','X_23', ...
              'X_31','X_32','X_33', 'Y'};
+         
 N = length(variables); 
 
 % create variables for indexing 
@@ -40,15 +41,20 @@ Aeq(1,[X_11, X_12, X_13, Y]) = [1,1,1,0]; beq(1) = h(1);
 Aeq(2,[X_21, X_22, X_23, Y]) = [1,1,1,0]; beq(2) = h(2);
 Aeq(3,[X_31, X_32, X_33, Y]) = [1,1,1,0]; beq(3) = h(3);
 
+
 % define integer constrains
 intcon = [X_11 X_12 X_13 X_21 X_22 X_23 X_31 X_32 X_33];
+
 
 % define lower bound and obj function
 lb = zeros(N,1);
 ub = [INF INF INF INF INF INF INF INF INF 1];
 
+% objective function coefficients
+obj= [0 0 0 0 0 0 0 0 0 0];
+
 % run the optimization function. 
-obj= [0 0 0 0 0 0 0 0 0 1];
-[x, fval] = intlinprog(obj, intcon, A, b, Aeq, beq, lb, ub);
+[x, fval] = intlinprog(obj, intcon, A, b, Aeq, beq, lb, ub); 
+fprintf('Optimal solution:  %f', x(10))
 
 
