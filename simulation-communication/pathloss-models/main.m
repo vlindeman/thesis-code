@@ -1,4 +1,3 @@
-
 % Radio Propagation Path Loss Models for5G Cellular Networks in the 28 GHz and38 GHz Millimeter-Wave Bands
 % https://ieeexplore-ieee-org.e.bibl.liu.se/stamp/stamp.jsp?tp=&arnumber=6894456
 
