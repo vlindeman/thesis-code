@@ -39,7 +39,10 @@ PL_sui_d0 = A + 10*gamma*log10(d0/d0)+s+Xfc+Xrx;
 PL = alpha*(PL_sui_d - PL_sui_d0) + A + s
 PL_gain = PL - TXgain - RXgain
 
+
 plot(d,PL)
+xlabel('Distance [m]') 
+ylabel('Path Loss [dB] ')  
 hold on
 
 
@@ -70,6 +73,7 @@ plot(d,PL)
 xlabel('Distance [m]') 
 ylabel('Path Loss [dB] ')  
 hold on
+
 
 %% Modified SUI - 28 GHz NLOS omni path loss
 % Based on SUI model 
@@ -110,11 +114,10 @@ PL_gain = PL - TXgain - RXgain
 
 
 plot(d,PL)
-
-plot(d,PL)
 xlabel('Distance [m]') 
 ylabel('Path Loss [dB] ')  
 hold on
+
 
 %% Modified SUI - 28 GHz LOS omni path loss
 % Based on Friis FS path loss model 
@@ -138,13 +141,9 @@ A = 20*log10((4*pi*d0)/lambda);
 PL = alpha*(PLfs_d-PLfs_d0)+A+s 
 PL_gain = PL - TXgain - RXgain 
 
+
 plot(d,PL)
-
-
-%% Calculate power and Capacity 
-
-d = 200
-Pt  = 40
-
-Pr = Pt -PL(d - 10)
+xlabel('Distance [m]') 
+ylabel('Path Loss [dB] ')  
+hold on
 
