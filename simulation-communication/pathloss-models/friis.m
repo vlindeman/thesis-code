@@ -18,7 +18,7 @@ PL = 20*log10((4*pi*d)/lambda) - Gt - Gr;
 max(PL)
 
 % calc Power   
-PtWatt =    0.0095
+PtWatt = 0.0095
 PtdB   = pow2db(PtWatt); 
 
 
