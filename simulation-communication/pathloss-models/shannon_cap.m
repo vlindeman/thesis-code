@@ -1,7 +1,9 @@
 %% Calculate Shannon cap with given PL matrix 
 % set and convert Pt
-PtWatt = 0.0095;
+PtWatt = 9.0925e+04
 PtdB   = pow2db(PtWatt);
+N0 = 10^-9;
+B = 1000 * 10^6;
 
 % calculate and convert Pr
 Pr_dB = PtdB  - PL;

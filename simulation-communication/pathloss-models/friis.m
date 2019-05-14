@@ -1,10 +1,8 @@
 %% Friis free space PL model
 % The most common frequency bands: 450 MHz, 800 MHz, 900 MHz and 2600 MHz
 clear    
-freq = 450 * 10^6;                          
+freq = 2600 * 10^6;                          
 lambda = physconst('LightSpeed')/freq;
-B = 5 * 10^6;
-N0 = 10^-9;
 
 % distance
 d = 10: 1 : 330; 
