@@ -1,9 +1,16 @@
 %% Calculate Shannon cap with given PL matrix 
 % set and convert Pt
-PtWatt = 9.0925e+04
+clc
+
+
+PtWatt = 48.3209
+
+
+B = 1500 * 10^6;
+
+
 PtdB   = pow2db(PtWatt);
 N0 = 10^-9;
-B = 1000 * 10^6;
 
 % calculate and convert Pr
 Pr_dB = PtdB  - PL;
@@ -15,7 +22,11 @@ SNR = Pr/(N0*B);
 % calculate Shannon capacity 
 C = B*log2(1+SNR);
 
-%% Plot 
+C(41)
+C(91)
+C(191)
+min(C)
+
 
 plot(d,C)
 hold on 

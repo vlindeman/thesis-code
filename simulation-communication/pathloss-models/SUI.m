@@ -2,10 +2,10 @@
 % The most common frequency bands: 450 MHz, 800 MHz, 900 MHz and 2 600 MHz
 clear
 
-d0 = 1                                      % reference distance, 1 m
-freq = 450 * 10^6;                         % frequency, in hz 
+freq = 2600 * 10^6;                          % frequency, in hz 
 lambda = physconst('LightSpeed')/freq       % wavelength, in m
 hb = 17                                     % base station height, in m.
+d0 = 1                                      % reference distance, 1 m
 s = 10.8                                    % shadowing effect, dB 
 n = 3;                                      % terrain type N = [1,2,3]
 
