@@ -35,8 +35,7 @@ PL_sui_d = A + 10*gamma*log10(d/d0)+s+Xfc+Xrx;
 % PLsui(d0)
 PL_sui_d0 = A + 10*gamma*log10(d0/d0)+s+Xfc+Xrx;
 
-PL = alpha*(PL_sui_d - PL_sui_d0) + A + s;
-PL = PL - TXgain - RXgain;
+PL = alpha*(PL_sui_d - PL_sui_d0) + A + s - TXgain - RXgain;
 
 
 plot(d, PL)
@@ -80,13 +79,11 @@ PL_sui_d = A + 10*gamma*log10(d/d0)+s+Xfc+Xrx;
 % PLsui(d0)
 PL_sui_d0 = A + 10*gamma*log10(d0/d0)+s+Xfc+Xrx;
 
-PL = alpha*(PL_sui_d - PL_sui_d0) + A + s;
-PL = PL - TXgain - RXgain;
+PL = alpha*(PL_sui_d - PL_sui_d0) + A + s - TXgain - RXgain;
 
 
 plot(d, PL)
 xlabel('Distance [m]') 
 ylabel('Path Loss [dB] ')  
 hold on
-
 

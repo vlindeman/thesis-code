@@ -1,7 +1,7 @@
 %% Optimize the transmission power 
 
 % Enter PL and PrMin
-PrMin =  -47.1220;
+PrMin =  -47.1357;
 PL = max(PL)
 
 % define inequality constraints 
