@@ -51,7 +51,7 @@ lb = zeros(N,1);
 ub = [INF INF INF INF INF INF INF INF INF 1];
 
 % objective function coefficients
-obj= [0 0 0 0 0 0 0 0 0 0];
+obj= [0 0 0 0 0 0 0 0 0 1];
 
 % run the optimization function. 
 [x, fval] = intlinprog(obj, intcon, A, b, Aeq, beq, lb, ub); 
