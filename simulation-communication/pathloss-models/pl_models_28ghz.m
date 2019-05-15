@@ -56,16 +56,16 @@ f = 28*10^9;
 lambda = physconst('LightSpeed')/f;
 TXgain = 24.5;
 RXgain = 24.5;
-s = 0.1; 
-gamma = 4.5; % "n" i the report
-alpha = 0.9; 
+s = 1.1; 
+gamma = 1.9; % "n" i the report
+alpha = 0.95; 
 
 PLfs_d = 20*log10((4*pi*d)/lambda);
 PLfs_d0 = 20*log10((4*pi*d0)/lambda);
 A = 20*log10((4*pi*d0)/lambda);
 
 PL = alpha*(PLfs_d-PLfs_d0)+A+s 
-PL_gain = PL - TXgain - RXgain 
+%PL = PL - TXgain - RXgain 
 
 
 plot(d,PL)
@@ -109,7 +109,7 @@ PL_sui_d = A + 10*gamma*log10(d/d0)+s+Xfc+Xrx;
 PL_sui_d0 = A + 10*gamma*log10(d0/d0)+s+Xfc+Xrx;
 
 PL = alpha*(PL_sui_d - PL_sui_d0) + A + s
-PL_gain = PL - TXgain - RXgain
+PL = PL - TXgain - RXgain
 
 
 plot(d,PL)
@@ -138,7 +138,7 @@ PLfs_d0 = 20*log10((4*pi*d0)/lambda);
 A = 20*log10((4*pi*d0)/lambda);
 
 PL = alpha*(PLfs_d-PLfs_d0)+A+s 
-PL_gain = PL - TXgain - RXgain 
+PL = PL - TXgain - RXgain 
 
 
 plot(d,PL)
