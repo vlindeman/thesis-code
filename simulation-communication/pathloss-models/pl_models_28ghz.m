@@ -65,7 +65,7 @@ PLfs_d0 = 20*log10((4*pi*d0)/lambda);
 A = 20*log10((4*pi*d0)/lambda);
 
 PL = alpha*(PLfs_d-PLfs_d0)+A+s 
-%PL = PL - TXgain - RXgain 
+PL = PL - TXgain - RXgain 
 
 
 plot(d,PL)
