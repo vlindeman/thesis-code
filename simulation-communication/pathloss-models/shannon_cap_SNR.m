@@ -5,8 +5,7 @@ clc
 PtWatt = 48.3209
 B = 1500 * 10^6;
 
-
-PtdB   = pow2db(PtWatt);
+PtdB = pow2db(PtWatt);
 N0 = 10^-9;
 
 % calculate and convert Pr
