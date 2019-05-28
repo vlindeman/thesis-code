@@ -2,8 +2,8 @@
 clc
 
 % enter Pt and Bandwidth 
-PtWatt = 48.3209
-B = 1500 * 10^6;
+PtWatt = 0.0095;
+B = 5 * 10^6;
 
 PtdB = pow2db(PtWatt);
 N0 = 10^-9;
