@@ -6,6 +6,8 @@ The Android Studio project for the app used to communicate with the Flask API.
 The code for the Flask API running on an AWS (EC2) instance.
 ### development_testing folder
 Code used for testing etc during the project. 
+### simulation-communication folder
+Contains Matlab code for simulations of capacity, using Friis, SUI and other models. 
 
 ## Built With
 ### Model 
